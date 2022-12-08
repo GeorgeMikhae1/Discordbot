@@ -1,14 +1,12 @@
 import keep_alive
 import os
+from discord.ui import Button, View
 import requests
-import json
 import asyncio
 import discord
-from discord.ext import commands
-from discord import ui
-from discord.ui import Button
-from discord import ActionRow, Button, ButtonStyle
 import random
+from discord.ext import commands
+
 
 intents = discord.Intents.all()
 
@@ -211,20 +209,162 @@ async def currency(ctx, currency2, amount):
                  " from USD")
 
 
-class choice1(discord.ui.View):
-  @discord.ui.button(label="option 1", row=0, style=discord.ButtonStyle.primary)
-  async def first_button_callback(self, button, interaction):
-    game1()
 
-  @discord.ui.button(label="option 2", row=1, style=discord.ButtonStyle.primary)
-  async def second_button_callback(self, button, interaction):
-    game2()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def game3(ctx):
+#   ctx.send("That's the spirit, just don't get cold feet on me. If you can't kill him **the world will end.**", view=choice3())
+
+# class choice2(discord.ui.View):
+#   @discord.ui.button(label="Refuse.", row=0, style=discord.ButtonStyle.primary)
+#   async def first_button_callback(self, button, interaction):
+#     game21()
+#   @discord.ui.button(label="let the world end", row=0, style=discord.ButtonStyle.primary)
+#   async def second_button_callback(self, button, interaction):
+#     game22()
+
+# def game2(ctx):
+#   ctx.send("It is anything but stupid. If you don't kill Pikachu, this world will end. Now if you understand let's move, we have a lot of ground to cover. Please don't make this hard. Let's just go, you are the only one who can do this.", view=choice2())
+
+
+# class choice1(discord.ui.View):
+#   @discord.ui.button(label="Escape.", row=0, style=discord.ButtonStyle.primary)
+#   async def first_button_callback(self, button, interaction):
+#     game11()
+#   @discord.ui.button(label="Proceed down the path.", row=0, style=discord.ButtonStyle.primary)
+#   async def second_button_callback(self, button, interaction):
+#     game12()
+#   @discord.ui.button(label="World-Ending?!?!", row=0, style=discord.ButtonStyle.primary)
+#   async def third_button_callback(self, button, interaction):
+#     game13()
+
+
+# def game1(ctx):
+#   ctx.send("As difficult as this seems if we don't kill pikachu now this world will end. Now... I've explained enough, let's go.", view=choice1)
+
+
+
+# class firstchoice(discord.ui.View):
+#   @discord.ui.button(label="What do you MEAN?!?!", row=0, style=discord.ButtonStyle.primary)
+#   async def first_button_callback(self, button, interaction):
+#     game1()
+#   @discord.ui.button(label="Why? That's just stupid.", row=0, style=discord.ButtonStyle.primary)
+#   async def second_button_callback(self, button, interaction):
+#     game2()
+#   @discord.ui.button(label="Sure", row=0, style=discord.ButtonStyle.primary)
+#   async def third_button_callback(self, button, interaction):
+#     game3()
+
+# def gamestart(ctx):
+#   ctx.send("This is a decision based game. You will experience a story for which you give one of the few responses presented to you. All responses will affect the game in their own way. Type in '1', '2', or '3' when presented with your options to choose your response unless otherwise specified.")
+#   ctx.send("Narrator: Now... Where were we?")
+#   ctx.send("Ah... Welcome to a new adventure")
+#   ctx.send("Narrator: Now... Where were we?")
+#   ctx.send("You wake up on the cold hard rocks of a stony path, deep in the middle of a forest.")
+#   ctx.send("Surrounded by a thicket of branches and large boulders, you stumble, but know you have to...")
+#   ctx.send("              M U R D E R  P I K A C H U              ", view=firstchoice())
+
+
+
+# class ply(discord.ui.View):
+#   @discord.ui.button(label="start", row=0, style=discord.ButtonStyle.primary)
+#   async def first_button_callback(self, button, interaction):
+#     gamestart()
+
+  
 
 
 
 @bot.command()
 async def game(ctx):
-  await ctx.send("Click start to start the game", view=choice1())
+  button1=Button(label="start", style=discord.ButtonStyle.green, disabled=False)
+  # button2=Button(label="start", style=discord.ButtonStyle.green)
+  # button3=Button(label="start", style=discord.ButtonStyle.green)
+  async def game1(interaction):
+    button11=Button(label="What do you MEAN?!?!", style=discord.ButtonStyle.green, disabled=False)
+    button12=Button(label="Why? That's just stupid.", style=discord.ButtonStyle.green, disabled=False)
+    button13=Button(label="Sure", style=discord.ButtonStyle.green, disabled=False)
+
+    async def game11(interaction):
+      await ctx.send("w1")
+    async def game12(interaction):
+      await ctx.send("w2")
+    async def game13(interaction):
+      await ctx.send("w3")
+    button11.callback=game11
+    button12.callback=game12
+    button13.callback=game13
+    view1=View()
+    view1.add_item(button11)
+    view1.add_item(button12)
+    view1.add_item(button13)
+    
+    await ctx.send("This is a decision based game. You will experience a story for which you give one of the few responses presented to you. All responses will affect the game in their own way. Type in '1' '2' or '3' when presented with your options to choose your response unless otherwise specified. Narrator: Now... Where were we? Ah... Welcome to a new adventure. You wake up on the cold hard rocks of a stony path, deep in the middle of a forest. Surrounded by a thicket of branches and large boulders. You stumble but know you have to...               M U R D E R  P I K A C H U              ", view=view1)
+    
+  button1.callback=game1
+  # button2.callback=game1
+  # button3.callback=game1
+  view=View()
+  view.add_item(button1)
+  await ctx.send("click start to start the game", view=view)
+    
   
 
     
@@ -242,11 +382,3 @@ async def ghelp(ctx):
 keep_alive.keep_alive()
 my_secret = os.environ['token']
 bot.run(my_secret)
-
-
-
-
-
-
-
-
