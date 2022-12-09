@@ -18,6 +18,7 @@ async def on_connect():
   print("your bot is online")
 
 
+
 @bot.command()
 async def sus(ctx):
   await ctx.send(
@@ -208,6 +209,16 @@ async def currency(ctx, currency2, amount):
   await ctx.send("$" + str(amount) + " is " + str(rate) + " in " + currency2 +
                  " from USD")
 
+# def picturemake(prompt):
+#   r = requests.post(
+#   "https://api.deepai.org/api/text2img",
+#     data={
+#         'text': prompt,
+#     },
+#     headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
+# )
+#   return(r.json())
+
 @bot.command()
 async def game(ctx):
   button1=Button(label="start", style=discord.ButtonStyle.green, disabled=False)
@@ -222,23 +233,28 @@ async def game(ctx):
       button112=Button(label="Proceed down the path.", style=discord.ButtonStyle.green, disabled=False)
       button113=Button(label="World-Ending?", style=discord.ButtonStyle.green, disabled=False)
 
-      async def game111():
+      async def game111(interaction):
         await ctx.send("-You run quickly back down the path you came, running through the brambles of trees deeper and deeper into the forest without a glance back. Suddenly you hear some say, 'We sholud keep running', you ask them who they are and they say 'I'm the voice of reason. I'm a product of your choices, here to guide you down this path. I'm here to help. Ah, finally caught up. You sure ran fast. I see you caught a stray... Well, I didn't expect you to try and escape for the least! Lets get this back on track. -In the blink of an eye you appear back on the stone path, once again where you started. Now, where were we... Ah, let's get back on track and kill Pikachu!'. You try to escape. -You run quickly back down the path you came, running through the brambles of trees deeper and deeper into the forest without a glance back. It seems oddly familiar... Are we back at the same place. HUFF HUFF! This HUFF has gone on HUFF... This has gone on long enough... I'm giving you one more chance! -In the blink of an eye you appear back on the stone path, once again where you started. -You sprint ever faster, and finally make it to a clearing in the woods... -Something is wrong. -Trees in the distance are disappearing, the earth shattering, and the sky turns black. -This world is ending. Ending 1: Escaped")
+        #await ctx.send(picturemake("escaped"))
       async def game112(interaction):
         button1121=Button(label="Are we finally here?", style=discord.ButtonStyle.green, disabled=False)
         button1122=Button(label="I can't do this anymore!", style=discord.ButtonStyle.green, disabled=False)
         button1123=Button(label="Grab the Knife", style=discord.ButtonStyle.green, disabled=False)
         async def game1121(interaction):
           await ctx.send("No, still more to go. -You begin to lose your mind, and your legs begin to fail you -You cant stand anymore, but the trail still continues -You die. Ending 7: Endless Journey")
+          #await ctx.send(picturemake("endless journey"))
         async def game1122(interaction):
           await ctx.send("What? Are you serious right now? You think we came all this way for a picnic... I'm done I'm done with this bullshit. I'm ending this adventure here. Ending 6: Weakling")
+          #await ctx.send(picturemake("weakling"))
         async def game1123(interaction):
           button11231=Button(label="Stab Him", style=discord.ButtonStyle.green, disabled=False)
           button11232=Button(label="Run", style=discord.ButtonStyle.green, disabled=False)
           async def game11231(interaction):
             await ctx.send("- You stab Pikachu deep in the heart, and the creature starts morphing in impossible ways. - Your muscles start to contract against your will as millions of volts of energy pass through your body, reducing you to ashes. Ending 2: Thunderbolt")
+            #await ctx.send(picturemake("thunderbolt"))
           async def game11232(interaction):
             await ctx.send("- As Pikachu morphs into a monsterous form, you make your escape - You don't look back until your spine shatters from the thunderous hit of Pikachu's tail. You Die. Ending 3: Iron Tail")
+            #await ctx.send(picturemake("iron tail"))
           button11231.callback=game11231
           button11232.callback=game11232
           view1123=View()
@@ -258,8 +274,10 @@ async def game(ctx):
         button1132=Button(label="Sit and wait", style=discord.ButtonStyle.green, disabled=False)
         async def game1131(interaction):
           await ctx.send("-You walk wearily down the path until your mind goes numb. -You cant stop thinking about the end of the world, and it bring you the strength to keep treading -Through it all you maintain your sanity, and finally resolve to kill Pikachu -Regardless of why you are here, you have a job to do, so you choose to fight -You make it to the clearing with Pikachu, waiting for you deep in a pit. -You have arrived at your destination. -You fight with every last ounce of your being, kicking and punching through the endless shock sent into your body. -You start to lose your ability to move, and your bones begin to break from the numerous attacks. -You put up a worthy fight, but Pikachu still wins in the end. Ending 4: Fallen Hero")
+          #await ctx.send(picturemake("fallenhero"))
         async def game1132(interaction):
           await ctx.send("Ha! Ha. Nice one, but we have a lot of ground to cover, so let's move! Fine. Goddammit. Hey could we get an ending in here! Ending 5: Stuck in place")
+          #await ctx.send(picturemake("stuck in place"))
         button1131.callback=game1131
         button1132.callback=game1132
         view113=View()
@@ -281,13 +299,16 @@ async def game(ctx):
 
       async def game121(interaction):
         await ctx.send("You think I'm some sort of pushover. I don't need to wait for your permission. You're going to regret not answering me. -The ground begins to shake, and you see the yellowy mass of Pikachu rise from the ground -This is much more demonic version of Pikachu than you remember. -This is not part of any pokemon games you remember. -You cannot escape his hunger. Ending 8: Devoured (don't anger the narrator)")
+        #await ctx.send(picturemake("devoured"))
       async def game122(interaction):
         button1221=Button(label="Ressist", style=discord.ButtonStyle.green, disabled=False)
         button1222=Button(label="Succumb", style=discord.ButtonStyle.green, disabled=False)
         async def game1221(interaction):
           await ctx.send("-You resist the control with every ounce of strength within your body. 'I'll help you. I'm the voice of strength!' With newfound strength, you wrench back control of your body Take that puppeteer! -You hear no response, and begin to feel chills. -The world begins to turn cold. We won... Right? Ending 9: Abandoned")
+          #await ctx.send(picturemake("abandoned"))
         async def game1222(interaction):
           await ctx.send("-You let your body be taken control of, and it begins to move again -Your body begins to trudge down the path, step after step -However, the end never seems to come. -The path seems to continue on forever, and ever. Are you going to die here? -Your body collapses motionless on the floor Ending 10: Puppet")
+          #await ctx.send(picturemake("puppet"))
         button1221.callback=game1221
         button1222.callback=game1222
         view122=View()
@@ -307,8 +328,10 @@ async def game(ctx):
 
       async def game131(interaction):
         await ctx.send("-You grab the knife, and hear a 'PIKACHUUU' coming from the hole below followed by a lightning bolt. -You look over and see Pikachu wrench itself out of the hole. Kill him!. LET'S GET THIS LIGHTNING RAT! -You grip the knife with both hands and charge Pikachu, driving the knife deep into his shoulder. Before he has a chance to attack, AGAIN! -You slash and slash until Pikachu ceases his movement! Looks like you beat him, congratulations, you S@V3D the w0r1d Ending 11: Murderer!")
+        #await ctx.send(picturemake("murder"))
       async def game132(interaction):
         await ctx.send("'Knife? You think I need a knife for a electric type pokemon.' you tell him You grab a great ball, and chuck it into the fray, summoning a earth type onix. Your onix slams into Pikachu, knocking him out instantly. You grab an empty great ball and use it to capture pikachu. You've won..... Ending 12: Capture")
+        #await ctx.send(picturemake("capture"))
       button131.callback=game131
       button132.callback=game132
       view13=View()
